@@ -8,8 +8,7 @@ As we know there are so many states and union territories present in India and a
 # Problem Statement
 
 ## CARTOGRAPHY - D3.JS
-This question is related to our class topic - geospatial visualization. Your task is to create a proportional
-symbol map (see lecture slides for definition), as follows.
+This question is related to our class topic - geospatial visualization. Your task is to create a proportional, as follows.
 1. Generate a map of India from this link: http://geojson.io/#map=2/20.0/0.0
 2. Generate coordinates (latitude and longitude) for different states. You can find the states and the
 population information here https://en.wikipedia.org/wiki/List_of_states_and_union_
