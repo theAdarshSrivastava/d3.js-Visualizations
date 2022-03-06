@@ -38,3 +38,7 @@ The radii of the circles must be proportional to the population of the states.
 # Final Result
 
 ![img](map-ss.png)
+
+# Contributors
+- ![Ankit Mathur](https://github.com/am9964)
+- ![Adarsh Srivastava](https://github.com/theAdarshSrivastava)
