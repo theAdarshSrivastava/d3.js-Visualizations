@@ -35,4 +35,4 @@ The radii of the circles must be proportional to the population of the states.
 
 # Final Results
 
-![img]()
+![img]("map-ss.png")
