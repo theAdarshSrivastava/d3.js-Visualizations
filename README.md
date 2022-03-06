@@ -40,5 +40,5 @@ The radii of the circles must be proportional to the population of the states.
 ![img](map-ss.png)
 
 # Contributors
-- ![Ankit Mathur](https://github.com/am9964)
-- ![Adarsh Srivastava](https://github.com/theAdarshSrivastava)
+- [Ankit Mathur](https://github.com/am9964)
+- [Adarsh Srivastava](https://github.com/theAdarshSrivastava)
