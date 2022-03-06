@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+          
+<!-- Load d3.js -->
+<script src="https://d3js.org/d3.v6.js"></script>
+
+<!-- Create an element where the map will take place -->
+<svg id="my_dataviz" width="1000" height="750"></svg>
+<script>
+
+    // The svg
+    const svg = d3.select("svg"),
+        width = +svg.attr("width"),
+        height = +svg.attr("height");
+    
+    // Map and projection
+    const projection = d3.geoMercator()
+    .scale(1250)
+  .center([65.0026, 27.7666])
+  .translate([50, 250]);
+    
+    Promise.all([
+    d3.json("India-state.geojson"),
+    d3.csv("data.csv")
+    ]).then(function (initialize) {
+    
+        let dataGeo = initialize[0]
+        let data = initialize[1]
+    
+      // Create a color scale
+      const color = d3.scaleOrdinal()
+        .domain(data.map(d => d.List))
+        .range(d3.schemePaired);
+    
+      // Add a scale for bubble size
+      const valueExtent = d3.extent(data, d => +d.Population)
+      const size = d3.scaleSqrt()
+        .domain(valueExtent)  // What's in the data
+        .range([ 1, 50])  // Size in pixel
+    
+      // Draw the map
+      svg.append("g")
+          .selectAll("path")
+          .data(dataGeo.features)
+          .join("path")
+            .attr("fill", "#FFF599")
+            .attr("d", d3.geoPath()
+                .projection(projection)
+            )
+          .style("stroke", "black")
+    
+      // Add circles:
+      svg
+        .selectAll("myCircles")
+        .data(data)
+        .join("circle")
+          .attr("cx", d => projection([+d.lon, +d.lat])[0])
+          .attr("cy", d => projection([+d.lon, +d.lat])[1])
+          .attr("r", d => size(+d.Population))
+          .style("fill", "#FA0000")
+          .attr("stroke-width", 1)
+          .attr("fill-opacity", .6)
+    
+    
+    
+     
+    
+    
+      // --------------- //
+      // ADD LEGEND //
+      // --------------- //
+    
+      // Add legend: circles
+      const valuesToShow = [100000,4000000,16000000,64000000]
+      const xCircle = 40
+      const xLabel = 90
+      svg
+        .selectAll("legend")
+        .data(valuesToShow)
+        .join("circle")
+          .attr("cx", xCircle)
+          .attr("cy", d => height - size(d))
+          .attr("r", d => size(d))
+          .style("fill", "none")
+          .attr("stroke", "black")
+    
+      // Add legend: segments
+      svg
+        .selectAll("legend")
+        .data(valuesToShow)
+        .join("line")
+          .attr('x1', d => xCircle + size(d))
+          .attr('x2', xLabel)
+          .attr('y1', d => height - size(d))
+          .attr('y2', d => height - size(d))
+          .attr('stroke', 'black')
+          .style('stroke-dasharray', ('2,2'))
+    
+      // Add legend: labels
+      svg
+        .selectAll("legend")
+        .data(valuesToShow)
+        .join("text")
+          .attr('x', xLabel)
+          .attr('y', d => height - size(d))
+          .text(d => d)
+          .style("font-size", 10)
+          .attr('alignment-baseline', 'middle')
+    })
+      
+    </script>
