@@ -82,6 +82,16 @@
       .attr("width", 90)
       .html("Submitted by: Adarsh Srivastava")
       .style("font-size", 14)
+
+      svg
+    .append("text")
+      .attr("text-anchor", "end")
+      .style("fill", "black")
+      .attr("x", 590)
+      .attr("y", 100)
+      .attr("width", 90)
+      .html("India Map")
+      .style("font-size", 30)
     
     
       // --------------- //
@@ -89,7 +99,7 @@
       // --------------- //
     
       // Add legend: circles
-      const valuesToShow = [100000,4000000,16000000,64000000]
+      const valuesToShow = [800000,12000000,32000000,64000000]
       const xCircle = 40
       const xLabel = 90
       svg
