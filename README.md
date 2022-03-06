@@ -1,6 +1,6 @@
 # India Population Visualizations
 
-![D3.js](https://d3js.org/)
+![D3.js](https://img.shields.io/badge/-D3.js-white?style=flat-square&logo=D3.js)
 
 As we know there are so many states and union territories present in India and all of them have their respective population so we are trying to create a proportional symbol map in which the circle size depends upon the population of the respective region.
 
