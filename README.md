@@ -15,3 +15,24 @@ territories_of_India_by_population.
 The radii of the circles must be proportional to the population of the states.
 
 # Steps to run file
+
+- Cloning the Repository: 
+
+        git clone https://github.com/theAdarshSrivastava/d3.js-Visualizations
+        
+- Entering the directory: 
+
+        cd d3.js-Visualizations
+        
+- Start the server:
+   
+        python -m http.server 8080
+        
+- Run the file: 
+
+        Click on index.html
+        
+
+# Final Results
+
+![img]()
